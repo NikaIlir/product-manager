@@ -15,12 +15,6 @@ class ProductDto
         public readonly ?int $ratingCount
     ) {}
 
-    /**
-     * Create a DTO from API data
-     *
-     * @param array $data Data from the API
-     * @return self
-     */
     public static function fromApiData(array $data): self
     {
         return new self(
@@ -35,13 +29,6 @@ class ProductDto
         );
     }
 
-    /**
-     * Create a DTO from an update request
-     *
-     * @param int $id The ID of the product
-     * @param array $data Data from the update request
-     * @return self
-     */
     public static function fromUpdateRequest(int $id, array $data): self
     {
         return new self(
