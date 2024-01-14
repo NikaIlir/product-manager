@@ -30,9 +30,9 @@ class ProductService
      */
     protected function importOrUpdateProduct(ProductDto $productDto): void
     {
-        $categoryId = $this->categoryService->getCategoryIdByTitle($productDto->category);
-
         try {
+            $categoryId = $this->categoryService->getCategoryIdByTitle($productDto->category);
+
             Product::query()->updateOrCreate(
                 ['external_id' => $productDto->id],
                 array_merge(

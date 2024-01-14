@@ -3,7 +3,6 @@
 namespace App\Console\Commands;
 
 use App\Contracts\ProductApiClient;
-use App\DataTransferObjects\ProductDto;
 use App\Exceptions\ApiFetchException;
 use App\Exceptions\ProductImportException;
 use App\Services\CategoryService;
@@ -35,7 +34,7 @@ class ImportProducts extends Command
 
             $products = $this->client->products();
 
-            $this->productService->importProducts($products, $categories);
+            $this->productService->importProducts($products);
 
             $this->info('Product import completed successfully.');
         } catch (ApiFetchException|ProductImportException $e) {

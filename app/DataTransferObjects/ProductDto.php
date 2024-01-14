@@ -4,7 +4,7 @@ namespace App\DataTransferObjects;
 
 class ProductDto
 {
-    private function __construct(
+    public function __construct(
         public readonly int $id,
         public readonly ?int $categoryId,
         public readonly ?string $title,
