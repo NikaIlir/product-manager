@@ -33,7 +33,6 @@ class ImportProducts extends Command
             $this->categoryService->importCategories($categories);
 
             $products = $this->client->products();
-
             $this->productService->importProducts($products);
 
             $this->info('Product import completed successfully.');
