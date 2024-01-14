@@ -32,7 +32,7 @@ return [
     ],
 
     'fake_store' => [
-        'api_url' => env('FAKE_STORE_API_URL', 'https://fakestoreapi.com/products'),
+        'api_url' => env('FAKE_STORE_API_URL', 'https://fakestoreapi.com'),
     ]
 
 ];
