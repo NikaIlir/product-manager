@@ -27,8 +27,8 @@ class FakeStoreProductApiClient implements ProductApiClient
     public function categories(): Collection
     {
         return $this->fetch(
-            endpoint: 'categories',
-            dataMapper: fn(array $category) => CategoryDto::fromApiData($category)
+            endpoint: 'products/categories',
+            dataMapper: fn(string $category) => CategoryDto::fromApiData($category)
         );
     }
 

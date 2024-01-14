@@ -8,10 +8,10 @@ class CategoryDto
         public readonly ?string $title,
     ) {}
 
-    public static function fromApiData(array $data): self
+    public static function fromApiData(string $title): self
     {
         return new self(
-            title: $data['title'],
+            title: $title,
         );
     }
 }

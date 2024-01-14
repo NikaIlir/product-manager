@@ -6,6 +6,7 @@ class ProductDto
 {
     private function __construct(
         public readonly int $id,
+        public readonly ?int $categoryId,
         public readonly ?string $title,
         public readonly ?float $price,
         public readonly ?string $description,
@@ -15,10 +16,11 @@ class ProductDto
         public readonly ?int $ratingCount
     ) {}
 
-    public static function fromApiData(array $data): self
+    public static function fromApiData(array $data, int $categoryId = null): self
     {
         return new self(
             id: $data['id'],
+            categoryId: $categoryId,
             title: $data['title'],
             price: $data['price'],
             description: $data['description'],
@@ -33,6 +35,7 @@ class ProductDto
     {
         return new self(
             id: $id,
+            categoryId: null,
             title: $data['title'] ?? null,
             price: $data['price'] ?? null,
             description: $data['description'] ?? null,
@@ -47,10 +50,10 @@ class ProductDto
     {
         return [
             'id' => $this->id,
+            'category_id' => $this->categoryId,
             'title' => $this->title,
             'price' => $this->price,
             'description' => $this->description,
-            'category' => $this->category,
             'image' => $this->image,
             'rating_rate' => $this->ratingRate,
             'rating_count' => $this->ratingCount,
